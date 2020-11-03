@@ -4,7 +4,7 @@ import configparser,os,time
 
 cf = configparser.ConfigParser()
 cf.read(os.path.dirname(__file__)+"/../conf.ini")
-
+# conf对应的数据库key
 key = "localhost"
 # 创建当前数据库的连接池对象
 class service(object):
@@ -22,17 +22,12 @@ class service(object):
             charset="utf8mb4"
         )
         self.conn, self.cursor = mysql_util.get_db_from_pool(pool=self.pool)
-
 s = service()
 run_sql = mysql_util.get_wrapper(s.pool)
 run_sql_v2 = mysql_util.get_wrapper_v2(s.pool)
-
-
 from utils.mysql.common_dao import common_dao as common
 # 给公共方法加上带pool的注释器，无法通过init方法传递注释器
 class common_dao(common):
-
-
     def __init__(self,table_name):
         super().__init__(table_name=table_name)
 

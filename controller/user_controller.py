@@ -12,10 +12,7 @@
 from flask_restful import Resource, request
 from  service.user_service import  user_service
 import utils.response_util as response_util
-
-
 service =user_service()
-
 class do_login(Resource):
     @response_util.response_filter_v2
     def post(self):
@@ -39,5 +36,10 @@ class select_users(Resource):
         return service.select_users(text_json)
 
 
+class test_group(Resource):
+    @response_util.response_filter_v2
+    def post(self):
+        text_json = request.get_json()
+        return service.test_group(text_json)
 
 
