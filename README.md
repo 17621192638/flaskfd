@@ -32,7 +32,7 @@ python3 /home/flaskfd/web_api.py
 │ ├── mysql    // mysql数据库
 │ ├── ├── localhost1   // 数据库1
 │ ├── ├── localhost2   // 数据库2
-│ ├── ├── conf.ini       // mysql数据库 
+│ ├── ├── conf.ini       // mysql数据库配置文件
 ├── utils                // 项目工具类，基本通用方法汇总 
 │ ├── mysql          
 │ ├── nlp 
@@ -71,7 +71,7 @@ endpoint="user_controller.do_login")
 ...
 ...
 ```
-在web_api.py 项目启动文件中进行api接口路由的配置，引入不同的controller，每个controller方法对应一个api方法，自定义api的地址。
+在web_api.py 项目启动文件中进行api接口路由的配置，引入不同的controller，每个controller方法对应多个api方法，自定义api的地址。
 
 ## Controller配置
 
@@ -342,7 +342,7 @@ http://localhost:7789/api/login
 
 ### case2 复杂条件查询—用户表查询
 
-分页查询用户表用户
+分页查询用户表用户，并按照时间升序排序
 
 ```
 
